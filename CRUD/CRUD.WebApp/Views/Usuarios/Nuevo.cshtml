@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model CRUD.WebApp.Models.Usuarios;
+<div class="row">
+    <div class="col-sm-8 offset-sm-2">
+        <h2>Nuevo Usuario</h2>
+        <form asp-controller="Usuarios" asp-action="Nuevo" method="post">
+            <div class="mb-3">
+                <label>Nombre Completo</label>
+                <input class="form-control" asp-for="Nombre" type="text" />
+            </div>
+            <div class="mb-3">
+                <label>Telefono</label>
+                <input class="form-control" asp-for="Telefono" type="number" />
+            </div>
+            <div class="mb-3">
+                <label>Correo Electronico</label>
+                <input class="form-control" asp-for="CorreoElectronico" type="text" />
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit" >Guardar</button>
+                <a asp-controller="Usuarios" asp-action="Lista" class="btn btn-warning">volver</a>
+
+            </div>
+        </form>
+
+    </div>
+
+</div>
