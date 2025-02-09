@@ -32,7 +32,14 @@
                                asp-route-id="@item.Idusuario"
                                 class="btn btn-primary">
                                 Editar</a>
-                        
+
+                            <a asp-controller="Usuarios"
+                               asp-action="Eliminar"
+                               asp-route-id="@item.Idusuario"
+                               onclick="return confirmar() "
+                               class="btn btn-primary">
+                                Eliminar
+                            </a>
 
                         </td>
                     </tr>
@@ -43,3 +50,11 @@
     </div>
 
 </div>
+
+@section Scripts{
+    <script>
+        function confirmar() {
+            confirm("Esta seguro que quiere eliominar este usuario ??")
+        }
+    </script>
+}

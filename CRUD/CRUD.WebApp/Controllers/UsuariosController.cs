@@ -34,5 +34,30 @@ namespace CRUD.WebApp.Controllers
             await _appDbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Lista));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Editar(int id)
+        {
+            Usuarios usuarios = await _appDbContext.Usuarios.FirstAsync(e => e.Idusuario == id);
+            return View(usuarios);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Editar(Usuarios usuarios)
+        {
+            _appDbContext.Usuarios.Update(usuarios);
+            await _appDbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Lista));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Eliminar(int id)
+        {
+            Usuarios usuarios = await _appDbContext.Usuarios.FirstAsync(e => e.Idusuario == id);
+
+            _appDbContext.Usuarios.Remove(usuarios);
+            await _appDbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Lista));
+        }
     }
 }
